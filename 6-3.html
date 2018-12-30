@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function avg(a, b){
+      return (a+b)/2;
+    }
+    var a;
+    var b;
+    a = prompt('', '');
+    b = prompt('', '');
+    var average = avg(Number(a), Number(b));
+    document.write(average+'<br>');
+
+    //
+    //
+    //
+
+    function f(x){
+      document.write('f내부: x ='+x+'<br>');
+      x = 5;
+      document.write('f내부: x ='+x+'(after alloc)<br>');
+    }
+
+    let x = 3;
+    document.write('f를 호출 하기전: x ='+x+'<br>');
+    f(x);
+    document.write('f를 호출한 다음: x = '+x+'<br>');
+  </script>
+</body>
+</html>
