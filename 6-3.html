@@ -32,6 +32,34 @@
     document.write('f를 호출 하기전: x ='+x+'<br>');
     f(x);
     document.write('f를 호출한 다음: x = '+x+'<br>');
+
+    //
+    //
+    //
+
+    function f(o){
+      o.message = 'f 안에서 수정(이전 값: '+o.message+')';
+    }
+
+    var o ={message : "default"};
+    console.log('before f: o.message = '+o.message);
+    f(o);
+    console.log('after f: o.message = '+o.message);
+
+    //
+    //
+    //
+
+    function getSentence({subject, verb, object}){
+      return subject +" " + verb + " " + object;
+    }
+
+    var o = {
+      subject : "I",
+      verb : "love",
+      object: "JS"
+    };
+    console.log(getSentence(o));
   </script>
 </body>
 </html>
