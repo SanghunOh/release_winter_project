@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/base.css">
+    <title>jQuery 개체와 DOM 개체</title>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var ball = $("li.ball");
+
+            function objectType(obj){
+                rtn = "";
+                if(obj instanceof jQuery){
+                    rtn = "jQuery";
+                }
+                else if(obj.nodeType){
+                    rtn = "DOM";
+                }
+                else if(obj instanceof Array){
+                    rtn = "Array";
+                }
+
+                return rtn;
+            }
+
+
+            console.log("ball => " + objectType(ball));
+            console.log("ball.get() => " + objectType(ball.get()));
+            console.log("ball.get(0) => " + objectType(ball.get(0)));
+            console.log("ball[0] => " + objectType(ball[0]));
+
+            $(ball.get()).css({"color" : "blue"});
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li class = "ball">soccer</li>
+        <li class = "ball">baseball</li>
+        <li class = "fight">boxing</li>
+        <li class = "ball">basketball</li>
+        <li class = "ball">tennis</li>
+    </ul>
+</body>
+</html>

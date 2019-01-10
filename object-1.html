@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset = "utf-8">
+    <title>Object</title>
+  </head>
+  <body>
+    <script>
+      function Member(name, age){
+        this.name = name;
+        this.age = age;
+        this.point = 50;
+        this.pointUp = function(param){
+          this.point = this.point+param;
+        };
+        this.pointDown = function (param){
+          this.point = this.point-param;
+        };
+      }
+
+      Member.prototype.pointReset = function(){
+        this.point = 0;
+      }
+
+      var kim = new Member("kim", 30);
+      var lee = new Member("lee", 32);
+
+      kim.pointUp(30);
+      lee.pointDown(10);
+      console.log(kim.point);
+      console.log(lee.point);
+
+      kim.pointReset();
+      console.log(kim.point);
+      console.log(lee.point);
+    </script>
+  </body>
+</html>

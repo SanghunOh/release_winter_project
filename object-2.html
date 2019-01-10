@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>object</title>
+</head>
+<body>
+  <script>
+    var car = {
+      speed : 60,
+      color:"white",
+      speedUp: function (up){
+        this.speed = this.speed + up;
+      },
+      speedDown: function (down){
+        this.speed = this.speed - down;
+      },
+      getSpeed: function(){
+        return this.speed;
+      }
+    }
+
+    var bicycle = {
+      speed: 10,
+      color: "gray",
+    };
+
+    console.log("car.color = " + car.color);
+    console.log("car.speed = " + car.speed);
+    car.speedUp(30);
+
+    console.log("-----car.speedUp(30)-----");
+    console.log("car.speed = " + car.speed);
+    console.log("car.getSpeed() = " + car.getSpeed());
+
+    console.log("bicycle.speed = " + bicycle.speed);
+    car.speedUp.call(bicycle,20);
+    console.log("-----car.speedUp.call(bicycle,20)-----");
+    console.log("bicycle.speed = " + bicycle.speed);
+    console.log("car.speed = "+car.speed);
+
+    console.log("===== car =====");
+    for(var key in car){
+      console.log(key + "=" + car[key]);
+    }
+
+    console.log("===== bicycle =====");
+    for(key in bicycle){
+      console.log(key + "=" + bicycle[key]);
+    }
+  </script>
+</body>
+</html>

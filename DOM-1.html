@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/base.css">
+    <title>노드 접근</title>
+    <script>
+        var childObj;
+        window.onload = function(){
+            var boxObj = document.getElementById("box");
+            alert(boxObj.nodeName + " : " + boxObj.nodeType + " : "+ boxObj.firstChild.nodeValue);
+
+
+            var liObj = document.getElementsByTagName("li");
+            for(i=0 ; i<liObj.length ; i++){
+                liObj[i].style.fontStyle = "italic";
+            }
+
+            var ballObj;
+            if("getElementByClassName" in document){
+                ballObj = document.getElementsByClassName("ball");
+                for(i=0 ; i<ballObj.length ; i++){
+                    ballObj[i].style.fontWeight = "bold";
+                }
+            }
+           else{
+                if("getAttributeNode" in liObj[0]){
+                    for(i=0 ; i<liObj.length ; i++){
+                        if(liObj[i].getAttributeNode("class") == "ball"){
+                            liObj[i].style.fontWeight = "bold";
+                        }
+                    }
+                }
+            }
+
+            childObj = document.getElementById("sports").childNodes;
+            console.log("chileObj.length = "+childObj.length);
+            for(i=0 ; i<childObj.length ; i++){
+                if(childObj[i].nodeType == 1){
+                    console.log(childObj[i].firstChild.nodeValue);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>Sports</h3>
+    <ul id = "sports">
+        <li class = "ball">Baseball</li>
+        <li class = "ball">Soccer</li>
+        <li class = "ball">Tenis</li>
+        <li id = "box">Boxing</li>
+        <li>Taekwondo</li>
+    </ul>
+</body>
+</html>
