@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "utf-8">
+    <title>Date</title>
+  </head>
+  <body>
+    <script>
+      var dateObj = new Date();
+      var dayN = ["일", "월", "화", "수", "목", "금", "토"];
+
+      var day = dayN[dateObj.getDay()];
+      console.log(day + "요일");
+      var ymd = dateObj.getFullYear() + "-" + dateObj.getMonth() + "-" + dateObj.getDate();
+
+      console.log(ymd);
+
+      ymd = dateObj.getFullYear() + "-" + (dateObj.getMonth()+1)+"-"+dateObj.getDate();
+      console.log(ymd);
+
+      var y = dateObj.getFullYear();
+      var m = dateObj.getMonth()+1;
+      var mm = m>=10 ? m : "0"+m;
+      var d = dateObj.getDate();
+      var dd = d >= 10 ? d : "0"+d;
+      ymd = y + "-" + mm + "-" + dd;
+      console.log(ymd);
+
+      var h = dateObj.getHours();
+      var i = dateObj.getMinutes();
+      var s = dateObj.getSeconds();
+      var hh = h >= 10? h : "0" + h;
+      var ii = i >= 10 ? i : "0" + i;
+      var ss = s >= 10 ? s : "0" + s;
+      var his = hh + "-" + ii + "-" + ss;
+      console.log(his);
+
+      var dateObj3 = new Date(2014,5,10);
+      y = dateObj3.getFullYear();
+      m = dateObj3.getMonth();
+      d = dateObj3.getDate();
+      console.log(y+ "-"+m+"-"+d);
+
+      var n = 1;
+      var timer;
+      var str = "";
+
+      function displayShape(){
+        str = "";
+        if(n>10){
+          clearInterval(timer);
+        }
+        for(i=0 ; i<n ; i++){
+          str += "*";
+        }
+        console.log(n + ":" + str);
+        n++;
+      }
+      timer = setInterval(displayShape, 1000);
+    </script>
+  </body>
+</html>
