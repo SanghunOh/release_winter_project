@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>event capture & bubble</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <style>
+        div {
+            width:300px;
+            height: 50px;
+            background:#efefef;
+            margin-top:10px;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", function(){
+            var result1 = "";
+            var myspanObj1 = document.getElementById("myspan1");
+            var mydivObj1 = document.getElementById("mydiv1");
+
+            myspanObj1.addEventListener("click", function(e){
+                result1 = result1 =="" ? "span1 click" : result1 + " > span1 click";
+                if(result1.indexOf(">") >= 0){
+                    console.log(result1)
+                };
+            }, false);
+            mydivObj1.addEventListener("click", function(e){
+                result1 = result1 =="" ? "div1 click" : result1 + " > div1 click";
+                if(result1.indexOf(">") >= 0){
+                    console.log(result1);
+                };
+            }, false);
+
+            var result2 = "";
+            var myspanObj2 = document.getElementById("myspan2");
+            var mydivObj2 = document.getElementById("mydiv2");
+            myspanObj2.addEventListener("click", function(e){
+                result2 = result2 == "" ? "span2 click" : result2 + " > span2 click";
+                if(result2.indexOf(">") >= 0){
+                    console.log(result2);
+                }
+            }, false);
+
+            mydivObj2.addEventListener("click", function(e){
+                result2 = result2 =="" ? "div2 click" : result2 + " > div2 click";
+                if(result2.indexOf(">") >= 0){
+                    console.log(result2);
+                };
+            }, true);
+        });
+
+
+
+        /*
+        구버전 익스프로러 고려!
+        if(window.addEventListener){
+            window.addEventListener("load", function(){
+                alert("loaded");
+            }, false);
+        }
+        else{
+            window.attachEvent("onload", function(){
+                alert("loaded");
+            });
+        }
+        */
+    </script>
+</head>
+<body>
+
+    <div id="mydiv1">
+        This is <span id="myspan1">test1</span>
+    </div>
+    <div id="mydiv2">
+        This is <span id="myspan2">test2</span>
+    </div>
+</body>
+</html>
