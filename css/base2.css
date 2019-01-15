@@ -1,0 +1,4 @@
+table{border-collapse:collapse;border:gray 1px solid}
+td{border:gray 1px solid;font-size:9pt;text-align:center;height:25px}
+thead td{background-color:#D0E4FB}
+tbody td{background-color:#EEEEFF}
