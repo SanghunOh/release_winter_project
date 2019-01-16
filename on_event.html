@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>On event handle</title>
+        <script src = "./js/jquery1.9.1.js"></script>
+        <script>
+            $(document).ready(function(){
+                //위임방식
+                $("#table_test tbody").on("mousedown mouseup", "tr", function(e){
+                    if(e.type == "mousedown"){
+                        $(this).css({"color": "blue","font_weight":"bold"});
+                    }else{
+                        $(this).css({"color":"","font-weight":""});
+                    }
+                });
+
+                //직접할당 방식
+                $("#table_test tbody tr").on("mousedown mouseup", function(e){
+                    if(e.type == "mousedown"){
+                        $(this).css({"color":"blue","font_weight": "bold"});
+                    }
+                    else{
+                        $(this).css({"color":"","font_weight":""});
+                    }
+                });
+
+                $("<tr><td>Bruce</td><td>La</td><td>89</td></tr>").appendTo("#table_test tbody");
+            });
+        </script>
+        <style>
+            table {
+                border-collapse:collapse;
+                border: 1px solid black;
+                width: 310;
+            }
+            thead td{
+                background: #efefef;
+                width: 100px;
+            }
+            td {
+                height:25px;
+                text-align: center;
+                border:1px solid black;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <table id="table_test">
+            <thead>
+                <tr>
+                    <td>Name</td>    <td>City</td>    <td>Point</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lee</td>    <td>Seoul</td>    <td>90</td>
+                </tr>
+                <tr>
+                    <td>Park</td>    <td>Seoul</td>    <td>70</td>
+                </tr>
+                <tr>
+                    <td>Kim</td>    <td>Busan</td>    <td>85</td>
+                </tr>
+                <tr>
+                    <td>Tommy</td>    <td>Jeju</td>    <td>82</td>
+                </tr>
+                <tr>
+                    <td>John</td>    <td>Inchon</td>    <td>78</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
