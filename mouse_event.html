@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MOUSE EVENT</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <script src = ./js/jquery1.9.1.js></script>
+    <script>
+        $(document).ready(function(){
+            var str = "";
+            $("#btn1").on("click", function(e){
+                if(str == ""){
+                    str = "click";
+                }
+                else{
+                    str = str + " > click";
+                }
+                $("#div_info").text(str);
+            });
+            $("#btn1").on("mousedown", function(e){
+                if(str == ""){
+                    str = "mousedown";
+                }
+                else{
+                    str = str+ " > mousedown";
+                }
+                $("#div_info").text(str);
+            });
+            $("#btn1").on("mouseup", function(e){
+                if(str == ""){
+                    str = "mouseup";
+                }
+                else{
+                    str = str + " > mouseup"
+                }
+                $("#div_info").text(str);
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(e){
+            $("#btn1").on("click mousedown mouseup", function(e){
+                e = e ==
+            })
+        })
+    </script>
+    <style>
+        div{
+            font-size:11pt;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id = "btn1" value = "click">
+    <div id = "div_info"></div>
+</body>
+</html>
