@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>selector</title>
+    <script src = "./js/jquery1.9.1.js"></script>
+    <script>
+        $(document).ready(funciton(){}
+            var orgStyle = {"font-weight" = "", "background-color" = ""};
+            var newStyle = {"font-weight" = "bold", "background-color" = "#dddddd"};
+
+            $("#div_btn1").on(
+                {
+                    "mousedown":function(e){$("td").css(newStyle)},
+                    "mouseup":function(e){$("td").css(orgStyle)}
+                },"#btn1"
+            );
+        })
+    </script>
+    <style>
+        table{
+            width:400;
+        }
+    </style>
+</head>
+<body>
+    <table id="test_table">
+        <thead>
+            <tr>
+                <td>Name</td>    <td>City</td>    <td>Age</td>    <td>Point</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="usernm">Kim</td><td>Seoul</td><td>32</td><td>80</td>
+            </tr>
+            <tr>
+                <td class="usernm" id = "#td_lee">Lee</td><td>Daejon</td><td>35</td><td>90</td>
+            </tr>
+            <tr>
+                <td class="usernm">Park</td><td>Busan</td><td>29</td><td>70</td>
+            </tr>
+            <tr>
+                <td class="usernm">Kwon</td><td>Daegu</td><td>33</td><td>80</td>
+            </tr>
+            <tr>
+                <td class="usernm">Jung</td><td>GangWon</td><td>37</td><td>100</td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="div_btn1">
+        <input type="button" value = "Tag : td" id = "btn1">
+        <input type="button" value = "Class : emp" id = "btn2">
+        <input type="button" value = "#td_lee + td" id = "btn3">
+        <input type="button" value = "#td_lee~td" id = "btn4">
+    </div>
+
+    <div id="div_test">
+        <p>child paragraph1</p>
+        <div>
+            <p>descendent paragraph1</p>
+            <p>descendent paragraph2</p>
+            <p>descendent paragraph3</p>
+        </div>
+        <p>child paragraph2</p>
+        <p>child paragraph3</p>
+    </div>
+
+    <div id="div_btn2">
+        <input type="button" value = "Children : #div_test > p" id = "btm5">
+        <input type="button" value = "descendent : #div_test p" id = "btn6">
+    </div>
+</body>
+</html>
